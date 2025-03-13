@@ -7,7 +7,7 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://your_workspace.databricks.com:443
+      host: https://your_workspace.cloud.databricks.com:443
 
     resources:
       jobs:
