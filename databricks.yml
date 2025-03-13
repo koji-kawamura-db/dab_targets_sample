@@ -1,0 +1,10 @@
+# This is a Databricks asset bundle definition for dab_targets_sample.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: dab_targets_sample
+  uuid: 471b5385-eb30-4cdd-b127-b2fd4a35fd86
+
+include:
+  - resources/*.yml
+  - targets/*.yml
+

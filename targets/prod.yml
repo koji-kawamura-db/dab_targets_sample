@@ -1,0 +1,32 @@
+
+targets:
+  prod:
+    mode: production
+    workspace:
+      host: https://your_workspace.cloud.databricks.com:443
+      # We explicitly deploy to /Workspace/Users/admin_user_name to make sure we only have a single copy.
+      root_path: /Workspace/Users/admin_user_name/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: admin_user_name
+        level: CAN_MANAGE
+
+    resources:
+      jobs:
+        dab_targets_sample_job:
+          name: dab_targets_sample_job
+
+          tasks:
+            - task_key: notebook_task
+              notebook_task:
+                base_parameters:
+                  var_1: PROD Value
+                  var_2: Specified in prod.yml file
+
+          job_clusters:
+            - job_cluster_key: job_cluster
+              new_cluster:
+                custom_tags:
+                  dab_target: prod
+                autoscale:
+                    min_workers: 1
+                    max_workers: 4
