@@ -24,11 +24,10 @@ targets:
           job_clusters:
             - job_cluster_key: job_cluster
               new_cluster:
-                custom_tags:
-                  dab_target: dev
                 num_workers: 0
                 spark_conf:
                   "spark.databricks.cluster.profile": "singleNode"
                   "spark.master": "local[*]"
                 custom_tags:
+                  dab_target: dev
                   "ResourceClass": "SingleNode"
